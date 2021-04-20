@@ -1,4 +1,4 @@
-package com.accounting;
+package com.friday;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
