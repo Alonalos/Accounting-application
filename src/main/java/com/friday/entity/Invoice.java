@@ -1,5 +1,6 @@
 package com.friday.entity;
 
+import com.friday.enums.InvoiceStatus;
 import com.friday.enums.InvoiceType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class Invoice extends  BaseEntity {
     private String invoiceNo;
 
     @Enumerated(EnumType.STRING)
-    private String invoiceStatus;
+    private InvoiceStatus invoiceStatus;
 
     private Integer invoiceNumber;
 
