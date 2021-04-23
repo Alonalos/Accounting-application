@@ -1,35 +1,29 @@
-package com.friday.entity;
+package com.friday.dto;
 
+import com.friday.entity.Company;
+import com.friday.enums.CompanyType;
 import com.friday.enums.Status;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name="SP")
-public class SP extends BaseEntity {
+public class SPDTO {
+    private Long id;
     private String companyName;
     private String phone;
-    @Column(unique=true)
     private String email;
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
-    private String type;
+    private CompanyType type;
     private String zipCode;
     private String address;
     private String state;
-    private Boolean enabled;
+    private Status status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
     private Company company;
-
-
 }

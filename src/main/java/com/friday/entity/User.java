@@ -1,5 +1,6 @@
 package com.friday.entity;
 
+import com.friday.enums.Status;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.List;
 @Setter
 @Entity
 public class User extends BaseEntity {
+    @Column(unique=true)
     private String email;
     private String firstName;
     private String lastName;
@@ -23,6 +25,10 @@ public class User extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
 
     @ManyToMany
     @JoinTable(name = "user_role",

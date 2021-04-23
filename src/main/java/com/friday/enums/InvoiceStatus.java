@@ -3,11 +3,8 @@ package com.friday.enums;
 public enum InvoiceStatus {
 
     IN_PROCESS("In Process"),
-    DRAFT("Draft"),
-    PAID("Paid"),
-    REJECTED("Rejected"),
-    VOIDED("Voided"),
-    PENDING_REVIEW("PendingReview");
+    APPROVED("Approved");
+
 
     private final String value;
 

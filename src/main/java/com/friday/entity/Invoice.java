@@ -2,6 +2,7 @@ package com.friday.entity;
 
 import com.friday.enums.InvoiceStatus;
 import com.friday.enums.InvoiceType;
+import com.friday.enums.Status;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,6 +36,9 @@ public class Invoice extends  BaseEntity {
     private Company company;
 
     private boolean enabled;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
 }

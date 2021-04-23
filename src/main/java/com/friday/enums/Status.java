@@ -1,11 +1,10 @@
 package com.friday.enums;
 
-public enum CompanyType {
-    VENDOR("Vendor"),CUSTOMER("Customer"),VENDOR_CUSTOMER("Vendor_Customer");
-
+public enum Status {
+    ACTIVE("Active"),PASSIVE("Passive");
     private final String value;
 
-    CompanyType(String value) {
+    Status(String value) {
         this.value = value;
     }
 
