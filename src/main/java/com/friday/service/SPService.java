@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SPService {
 
-    SP findByCompanyName(String companyName);
+    SP findByCompany(Company company);
 
     SP save(SPDTO dto);
 
@@ -17,8 +17,8 @@ public interface SPService {
 
     void delete(Long id);
 
-    SPDTO deactivate(Long id);
 
 
-    List<SPDTO> listAllSP();
+
+
 }

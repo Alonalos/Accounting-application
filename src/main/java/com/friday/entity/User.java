@@ -1,6 +1,7 @@
 package com.friday.entity;
 
 import com.friday.enums.Status;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -31,10 +33,10 @@ public class User extends BaseEntity {
 
 
     @ManyToMany
-    @JoinTable(name = "user_role",
+    @JoinTable(name = "userRole",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roleList = new ArrayList<>();
+    private List <Role> roles;
 }
 
 

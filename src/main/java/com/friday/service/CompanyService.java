@@ -1,6 +1,7 @@
 package com.friday.service;
 
 import com.friday.dto.CompanyDTO;
+import com.friday.dto.UserDTO;
 import com.friday.entity.Company;
 
 
@@ -8,16 +9,12 @@ import java.util.List;
 
 public interface CompanyService {
 
-    Company findByCompanyName(String companyName);
 
-    Company save(CompanyDTO dto);
+    CompanyDTO save(CompanyDTO dto) throws Exception;
 
-    CompanyDTO update(CompanyDTO dto);
+    CompanyDTO update(CompanyDTO dto) throws Exception;
 
     void delete(Long id);
-
-    CompanyDTO deactivate(Long id);
-
 
     List<CompanyDTO> listAllCompanies();
 

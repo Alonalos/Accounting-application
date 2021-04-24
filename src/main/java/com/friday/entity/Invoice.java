@@ -37,8 +37,6 @@ public class Invoice extends  BaseEntity {
 
     private boolean enabled;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
 
 
 }

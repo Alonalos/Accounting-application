@@ -7,19 +7,15 @@ import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 public interface UserService {
-    List<UserDTO> listAllUsers();
 
-    UserDTO findByEmail(String userEmail);
+    UserDTO findByEmail(String email);
 
-    UserDTO save(UserDTO user);
+    List<UserDTO>listAllUsers();
 
-    UserDTO update(UserDTO dto);
 
-    void delete(Long id);
+    UserDTO save(UserDTO dto);
 
-    void deleteByEmail(Long id);
+    void delete(String email);
 
-    List<UserDTO> listAllByRole(String role);
-
-    UserDTO confirm(User user);
+    void update(UserDTO userDTO);
 }

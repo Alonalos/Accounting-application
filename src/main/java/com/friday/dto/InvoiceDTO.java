@@ -25,6 +25,7 @@ public class InvoiceDTO {
     private LocalDate date;
     private SP sp;
     private Company company;
+    private Long id;
 
 
 }

@@ -3,7 +3,8 @@ package com.friday.enums;
 public enum InvoiceStatus {
 
     IN_PROCESS("In Process"),
-    APPROVED("Approved");
+    APPROVED("Approved"),
+    DELETED("Deleted");
 
 
     private final String value;
