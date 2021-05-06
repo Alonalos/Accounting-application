@@ -6,16 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@Table(name="companies")
 public class Company extends  BaseEntity {
     private String title;
     private String address1;

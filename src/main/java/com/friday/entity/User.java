@@ -15,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name="users")
 public class User extends BaseEntity {
     @Column(unique=true)
     private String email;

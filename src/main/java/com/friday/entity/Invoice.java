@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
+@Table(name="invoices")
 public class Invoice extends  BaseEntity {
     private String invoiceNo;
 

@@ -1,39 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <title>Dashboard 3</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
-
-</head>
+<head th:replace="/fragments/meta :: head"></head>
 
 <body class="animsition">
 <div class="page-wrapper">
@@ -42,90 +10,14 @@
     <header class="header-desktop3 d-none d-lg-block">
         <div class="section__content section__content--p35">
             <div class="header3-wrap">
-                <div class="header__logo">
-                    <a href="#">
-                        <img src="images/icon/logo-white.png" alt="CoolAdmin"/>
-                    </a>
-                </div>
-                <div class="header__navbar">
-                    <ul class="list-unstyled">
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fas fa-tachometer-alt"></i>Home Page
-                                <span class="bot-line"></span>
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fas fa-tachometer-alt"></i>Management
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a href="index.html">Company Registration</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">User Registration</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Vendor/Client Registration</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fas fa-tachometer-alt"></i>Stock Management
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a href="index.html">Products</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html"> Category</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fas fa-tachometer-alt"></i>Invoices
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a href="index.html">Purchase Invoice</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Sales Invoice</a>
-                                </li>
-                                <li>
-                                    <a href="index.html">Invoice Search</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fas fa-tachometer-alt"></i>Reporting
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a href="index.html">Stock Report</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Profit/Loss Report</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div th:replace="/fragments/header::header"></div>
                 <div class="account-wrap">
                     <div class="account-item account-item--style2 clearfix js-item-menu">
                         <div class="image">
                             <img src="images/icon/avatar-01.jpg" alt="John Doe"/>
                         </div>
                         <div class="content">
-                            <a class="js-acc-btn" href="#">john doe</a>
+                            <a class="js-acc-btn" href="#">User</a>
                         </div>
                         <div class="account-dropdown js-dropdown">
                             <div class="info clearfix">
@@ -136,9 +28,9 @@
                                 </div>
                                 <div class="content">
                                     <h5 class="name">
-                                        <a href="#">john doe</a>
+                                        <a href="#">User</a>
                                     </h5>
-                                    <span class="email">johndoe@example.com</span>
+                                    <span class="email">user@example.com</span>
                                 </div>
                             </div>
                             <div class="account-dropdown__footer">
@@ -162,7 +54,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="title-4">Products List
+                        <h1 class="title-4">Products
                         </h1>
                         <hr class="line-seprate">
                     </div>
@@ -170,180 +62,157 @@
             </div>
         </section>
         <!-- END WELCOME-->
-
-
-
         <!-- DATA TABLE-->
-
+        <!--------------------------FORM START------------------------------->
         <section class="p-t-10">
             <div class="container small">
                 <div class="col-sm-12">
                     <!--------------------------FORM START------------------------------->
-                     <form>
-                         <div class="card">
-                                 <div class="card-body card-block">
-                                        <div class="row form-group">
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="title" class=" form-control-label">NAME</label>
-                                                    <input type="text" id="title"
-                                                           class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="zip" class=" form-control-label">DESCRIPTION</label>
-                                                    <input type="text" id="zip"
-                                                           class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="select" class=" form-control-label">CATEGORY</label>
-                                                    <select name="select" id="select" class="form-control">
-                                                        <option value="" selected="selected">Select Category</option>
-                                                        <option value="AL">A</option>
-                                                        <option value="AK">B</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                    <form>
+                        <div class="card">
+                            <div class="card-body card-block">
+                                <div class="row form-group">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="name" class=" form-control-label">NAME</label>
+                                            <input type="text" id="name"
+                                                   class="form-control">
                                         </div>
-                                        <div class="row form-group">
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="quantity" class=" form-control-label">QUANTITY</label>
-                                                    <input type="text" id="quantity" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="tax" class=" form-control-label">TAX</label>
-                                                    <input type="text" id="tax" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="selectunit" class=" form-control-label">UNIT</label>
-                                                    <select name="select" id="selectunit" class="form-control">
-                                                        <option value="" selected="selected">Select Unit</option>
-                                                        <option value="AL">A</option>
-                                                        <option value="AK">B</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="description" class=" form-control-label">DESCRIPTION</label>
+                                            <input type="text" id="description"
+                                                   class="form-control">
                                         </div>
-                                        <div class="row form-group">
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="select2" class=" form-control-label">Status</label>
-                                                    <select name="select" id="select2" class="form-control">
-                                                        <option value="" selected="selected">Select Status</option>
-                                                        <option value="AL">ACTIVE</option>
-                                                        <option value="AK">PASSIVE</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <div class="card-body">
-                                                    <button type="button" class="btn btn-success">Create</button>
-                                                    <button type="button" class="btn btn-danger">Cancel</button>
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="select" class=" form-control-label">CATEGORY</label>
+                                            <select name="select" id="select" class="form-control">
+                                                <option value="" selected="selected">Select Category</option>
+                                                <option value="AL">A</option>
+                                                <option value="AK">B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="quantity" class=" form-control-label">QUANTITY</label>
+                                            <input type="text" id="quantity" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="tax" class=" form-control-label">TAX</label>
+                                            <input type="text" id="tax" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="selectunit" class=" form-control-label">UNIT</label>
+                                            <select name="select" id="selectunit" class="form-control">
+                                                <option value="" selected="selected">Select Unit</option>
+                                                <option value="AL">A</option>
+                                                <option value="AK">B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="selectstatus" class=" form-control-label">Status</label>
+                                            <select name="select" id="selectstatus" class="form-control">
+                                                <option value="" selected="selected">Select Status</option>
+                                                <option value="AL">ACTIVE</option>
+                                                <option value="AK">PASSIVE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-success">Create</button>
+                                            <button type="button" class="btn btn-danger">Cancel</button>
+                                        </div>
+                                    </div>
 
-                                        </div>
-                                 </div>
-                            </div>
-                        </form>
-                    <!--------------------------FORM END------------------------------->
-                        <div class="table-data__tool">
-                            <div class="table-data__tool-right">
-                                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                    <i class="zmdi zmdi-plus"></i>Add Product
-                                </button>
+                                </div>
                             </div>
                         </div>
-                    <!-- START DATA TABLE-->
-                        <div class="table-responsive table-responsive-data3 ">
-                            <table class="table table-data3">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Quantity</th>
-                                    <th>Unit</th>
-                                    <th>Category</th>
-                                    <th>Status</th>
-                                    <th>Edit</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="tr-shadow">
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                    <td><div class="table-data-feature">
-                                        <button class="item" data-toggle="tooltip" data-placement="top"
-                                                title="Edit">
-                                            <i class="zmdi zmdi-edit"></i>
-                                        </button>
-                                    </div></td>
-                                </tr>
-                                <tr class="tr-shadow">
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td><button type="button" class="btn btn-success">Active</button></td>
-                                    <td><div class="table-data-feature">
-                                        <button class="item" data-toggle="tooltip" data-placement="top"
-                                                title="Edit">
-                                            <i class="zmdi zmdi-edit"></i>
-                                        </button>
-                                    </div></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                    </form>
+                    <!--------------------------FORM END------------------------------->
+                    <div class="table-data__tool">
+                        <div class="table-data__tool-right">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                <i class="zmdi zmdi-plus"></i>Add Product
+                            </button>
                         </div>
                     </div>
+                    <!-- START DATA TABLE-->
+                    <div class="table-responsive table-responsive-data3 ">
+                        <table class="table table-data3">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Unit</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Edit</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="tr-shadow">
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td><button type="button" class="btn btn-primary">Passive</button></td>
+                                <td><div class="table-data-feature">
+                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                            title="Edit">
+                                        <i class="zmdi zmdi-edit"></i>
+                                    </button>
+                                </div></td>
+                            </tr>
+                            <tr class="tr-shadow">
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td><button type="button" class="btn btn-success">Active</button></td>
+                                <td><div class="table-data-feature">
+                                    <button class="item" data-toggle="tooltip" data-placement="top"
+                                            title="Edit">
+                                        <i class="zmdi zmdi-edit"></i>
+                                    </button>
+                                </div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            </div>
         </section>
         <!-- END DATA TABLE-->
-
+        <!-- COPYRIGHT-->
+        <div th:replace="/fragments/copyright :: footer"></div>
+        <!-- END COPYRIGHT-->
     </div>
 
 </div>
 
-<!-- Jquery JS-->
-<script src="vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
-<script src="vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
-<script src="vendor/slick/slick.min.js">
-</script>
-<script src="vendor/wow/wow.min.js"></script>
-<script src="vendor/animsition/animsition.min.js"></script>
-<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-</script>
-<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendor/counter-up/jquery.counterup.min.js">
-</script>
-<script src="vendor/circle-progress/circle-progress.min.js"></script>
-<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="vendor/select2/select2.min.js">
-</script>
-
-<!-- Main JS-->
-<script src="js/main.js"></script>
+<div th:replace="/fragments/javascript :: js"></div>
 
 </body>
 

@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="SP")
+@Table(name="sp")
 public class SP extends BaseEntity {
     private String companyName;
     private String phone;

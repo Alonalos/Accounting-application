@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/meta :: head"></head>
+
+<body class="animsition">
+<div class="page-wrapper">
+
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop3 d-none d-lg-block">
+        <div class="section__content section__content--p35">
+            <div class="header3-wrap">
+                <div th:replace="/fragments/header::header"></div>
+                <div class="account-wrap">
+                    <div class="account-item account-item--style2 clearfix js-item-menu">
+                        <div class="image">
+                            <img src="images/icon/avatar-01.jpg" alt="John Doe"/>
+                        </div>
+                        <div class="content">
+                            <a class="js-acc-btn" href="#">john doe</a>
+                        </div>
+                        <div class="account-dropdown js-dropdown">
+                            <div class="info clearfix">
+                                <div class="image">
+                                    <a href="#">
+                                        <img src="images/icon/avatar-01.jpg" alt="John Doe"/>
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h5 class="name">
+                                        <a href="#">john doe</a>
+                                    </h5>
+                                    <span class="email">johndoe@example.com</span>
+                                </div>
+                            </div>
+                            <div class="account-dropdown__footer">
+                                <a href="#">
+                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER DESKTOP-->
+
+    <!-- PAGE CONTENT-->
+    <div class="page-content--bgf7">
+
+
+        <!-- WELCOME-->
+        <section class="welcome p-t-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title-4">Add Line Item
+                        </h1>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WELCOME-->
+        <!-- DATA TABLE-->
+        <!--------------------------FORM START------------------------------->
+        <section class="p-t-10">
+            <div class="container small">
+                <div class="col-sm-12">
+                    <!--------------------------FORM START------------------------------->
+                    <form>
+                        <div class="card">
+                            <div class="card-body card-block">
+                                <div class="row form-group">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="invnumber" class=" form-control-label">INVOICE NO</label>
+                                            <input type="text" id="invnumber"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="invndate" class=" form-control-label">INVOICE DATE</label>
+                                            <input type="text" id="invndate"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="vendor" class=" form-control-label">VENDOR</label>
+                                            <input type="text" id="vendor" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="select2" class=" form-control-label">PRODUCT</label>
+                                            <select name="select" id="select2" class="form-control">
+                                                <option value="" selected="selected">Select Product</option>
+                                                <option value="AL">1</option>
+                                                <option value="AK">2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="quantity" class=" form-control-label">QUANTITY</label>
+                                            <input type="text" id="quantity" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="price" class=" form-control-label">PRICE</label>
+                                            <input type="text" id="price" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-12">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-success pull-right">Add Item</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive table-responsive-data3 ">
+                                <table class="table table-data3">
+                                    <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="tr-shadow">
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td><div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                    title="Delete">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row form-group">
+                                    <div class="col-12">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-danger pull-right ">Cancel</button>
+                                            <button type="button" class="btn btn-success pull-right mr-2">Done</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!--!-- END DATA TABLE-->
+        <!-- COPYRIGHT-->
+        <div th:replace="/fragments/copyright :: footer"></div>
+        <!-- END COPYRIGHT-->
+    </div>
+
+</div>
+
+<div th:replace="/fragments/javascript :: js"></div>
+
+</body>
+
+</html>
