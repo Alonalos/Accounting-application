@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/stockManagement")
 public class StockManagementController {
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     public String products(){
         return "/stockManagement/product";
 
+    }
+
+    @GetMapping("/category")
+    public String category(){
+        return "/stockManagement/category";
     }
 }

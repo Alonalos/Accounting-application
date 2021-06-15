@@ -19,12 +19,12 @@ public class UserServiceImpl implements UserService {
 
     private MapperUtil mapperUtil;
     private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    //private PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(MapperUtil mapperUtil, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(MapperUtil mapperUtil, UserRepository userRepository){ //PasswordEncoder passwordEncoder) {
         this.mapperUtil = mapperUtil;
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+        //this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO save(UserDTO dto) {
         dto.setUserStatus(Status.ACTIVE);
         User user=mapperUtil.convert(dto, new User());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        //user.setPassword(passwordEncoder.encode(user.getPassword()));
         User save=userRepository.save(user);
         return mapperUtil.convert(save, new UserDTO());
 
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
     public void update(UserDTO userDTO) {
         User user=userRepository.findByEmail(userDTO.getEmail());
         User convertedUser=mapperUtil.convert(userDTO,new User());
-        convertedUser.setPassword(passwordEncoder.encode(convertedUser.getPassword()));
+        //convertedUser.setPassword(passwordEncoder.encode(convertedUser.getPassword()));
         convertedUser.setId(user.getId());
         userRepository.save(convertedUser);
 

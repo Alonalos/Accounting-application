@@ -13,4 +13,15 @@ public class ManagementController {
 
         return "/management/user";
     }
+
+    @GetMapping("/company")
+    public String createCompany(){
+
+        return"/management/company";
+    }
+
+    @GetMapping("/vendorClient")
+    public String createvendorClient(){
+        return "/management/vendorClient";
+    }
 }

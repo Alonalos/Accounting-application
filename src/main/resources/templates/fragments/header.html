@@ -2,80 +2,80 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div th:fragment="header">
-                <div class="header__navbar">
-                    <ul class="list-unstyled">
-                        <li class="has-sub">
-                            <a
-                                    class="nav-link active"
-                                    href="#">
-                                <i class="fa fa-home"></i>Home Page
-                                <span class="bot-line"></span>
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fa fa-th-large"></i>Management
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a class="nav-link" th:href="@{/management/company}">Company Registration</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" th:href="@{/management/user}">User Registration</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" th:href="@{/management/vendorclient}">Vendor/Client Registration</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fas fa-tachometer-alt"></i>Stock Management
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a class="nav-link" th:href="@{/stockManagement/product}">Products</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" th:href="@{/stockManagement/category}"> Category</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fa fa-clipboard"></i>Invoices
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a class="nav-link" th:href="@{/invoices/purchaseinv}">Purchase Invoice</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" th:href="@{/invoices/purchaseinvAddItem}">Sales Invoice</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="index.html">Invoice Search</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a href="#">
-                                <i class="fa fa-briefcase"></i>Reporting
-                                <span class="bot-line"></span>
-                            </a>
-                            <ul class="header3-sub-list list-unstyled">
-                                <li>
-                                    <a class="nav-link" href="index.html">Stock Report</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="index2.html">Profit/Loss Report</a>
-                                </li>
-                            </ul>
-                        </li>
-                     </ul>
-                </div>
+    <div class="header__navbar">
+        <ul class="list-unstyled">
+            <li class="has-sub">
+                <a
+                        class="nav-link active"
+                        href="#">
+                    <i class="fa fa-home"></i>Home Page
+                    <span class="bot-line"></span>
+                </a>
+            </li>
+            <li class="has-sub">
+                <a href="#">
+                    <i class="fa fa-th-large"></i>Management
+                    <span class="bot-line"></span>
+                </a>
+                <ul class="header3-sub-list list-unstyled">
+                    <li>
+                        <a class="nav-link" th:href="@{/management/company}">Company Registration</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/management/user}">User Registration</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/management/vendorClient}">Vendor/Client Registration</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="#">
+                    <i class="fas fa-tachometer-alt"></i>Stock Management
+                    <span class="bot-line"></span>
+                </a>
+                <ul class="header3-sub-list list-unstyled">
+                    <li>
+                        <a class="nav-link" th:href="@{/stockManagement/products}">Products</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/stockManagement/category}"> Category</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="#">
+                    <i class="fa fa-clipboard"></i>Invoices
+                    <span class="bot-line"></span>
+                </a>
+                <ul class="header3-sub-list list-unstyled">
+                    <li>
+                        <a class="nav-link" th:href="@{/invoices/purchaseInvoice}">Purchase Invoice</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="index.html">Sales Invoice</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="index.html">Invoice Search</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="#">
+                    <i class="fa fa-briefcase"></i>Reporting
+                    <span class="bot-line"></span>
+                </a>
+                <ul class="header3-sub-list list-unstyled">
+                    <li>
+                        <a class="nav-link" href="index.html">Stock Report</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="index2.html">Profit/Loss Report</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
