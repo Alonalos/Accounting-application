@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -37,7 +37,18 @@ public class User extends BaseEntity {
     @JoinTable(name = "userRole",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List <Role> roles;
+    private List <Role> roles= new ArrayList<>();
+
+    public User(String email, String firstName, String lastName, String password, Boolean enabled, String phone, Company company, Status status) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.enabled = enabled;
+        this.phone = phone;
+        this.company = company;
+        this.status = status;
+    }
 }
 
 

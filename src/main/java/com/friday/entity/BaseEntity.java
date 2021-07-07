@@ -24,18 +24,18 @@ public class BaseEntity {
     private Long id;
 
     @Column(nullable = false,updatable = false)
-    public String createdBy;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    public LocalDateTime insertDateTime;
 
     @Column(nullable = false,updatable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    public LocalDateTime createdTime;
+    public String insertUserId;
 
     @Column(nullable = false)
-    public String updatedBy;
+    private LocalDateTime lastUpdateDateTime;
 
-    @Column(nullable = false,updatable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    public LocalDateTime deleteTime;
+    @Column(nullable = false)
+    private Long lastUpdateUserId;
+
 
     private Boolean isDeleted=false;
 }

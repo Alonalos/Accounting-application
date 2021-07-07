@@ -6,21 +6,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name="roles")
 public class Role extends BaseEntity{
 
-    private String name;
+    private String description;
     private Boolean enabled;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles")
-    private List <User> users;
+    @ManyToMany(mappedBy = "roles")
+    private List <User> users=new ArrayList<>();
 
+
+    public Role(String description, Boolean enabled) {
+        this.description = description;
+        this.enabled = enabled;
+    }
 }

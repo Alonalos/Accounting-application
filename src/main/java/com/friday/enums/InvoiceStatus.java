@@ -2,7 +2,7 @@ package com.friday.enums;
 
 public enum InvoiceStatus {
 
-    IN_PROCESS("In Process"),
+    INPROGRESS("In Progress"),
     APPROVED("Approved"),
     DELETED("Deleted");
 

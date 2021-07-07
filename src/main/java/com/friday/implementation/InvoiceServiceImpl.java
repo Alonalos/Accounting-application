@@ -30,7 +30,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public InvoiceDTO save(InvoiceDTO dto) {
 
-        dto.setInvoiceStatus(InvoiceStatus.IN_PROCESS);
+        //dto.setInvoiceStatus(InvoiceStatus.IN_PROCESS);
         dto.setDate(LocalDate.now());
         Invoice invoice=mapperUtil.convert(dto,new Invoice());
         Invoice save=invoiceRepository.save(invoice);

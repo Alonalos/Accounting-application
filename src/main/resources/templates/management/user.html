@@ -68,28 +68,36 @@
         <section class="p-t-10">
             <div class="container small">
                 <div class="col-sm-12">
-                    <form>
+                    <form class="needs-validation" novalidate th:action="@{/management/user}" method="post" th:object="${user}">
                         <div class="card">
                             <div class="card-body card-block">
                                 <div class="row form-group">
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="firstname" class=" form-control-label">FIRST NAME</label>
-                                            <input type="text" id="firstname"
-                                                   class="form-control">
+                                            <label for="firstname" class=" form-control-label" >FIRST NAME</label>
+                                            <input type="text" id="firstname"  th:field="*{firstName}" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter first name
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="lastname" class=" form-control-label"><L>LAST NAME</L></label>
-                                            <input type="text" id="lastname"
-                                                   class="form-control">
+                                            <input type="text" id="lastname" th:field="*{lastName}"
+                                                   class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter  last first name
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="password" class="col-form-label">PASSWORD</label>
-                                            <input id="password" type="password" class="form-control" required>
+                                            <input id="password" type="password"  th:field="*{password}" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                            <div class="invalid-feedback">
+                                                Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -97,24 +105,27 @@
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="phone" class=" form-control-label">PHONE</label>
-                                            <input type="tel" id="phone"
+                                            <input type="tel" id="phone" th:field="*{phone}"
                                                    class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="email" class=" form-control-label">E-MAIL</label>
-                                            <input type="text" id="email"
+                                            <input type="text" id="email" th:field="*{email}"
                                                    class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter email.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="selectrole" class=" form-control-label">ROLE</label>
-                                            <select name="select" id="selectrole" class="form-control">
-                                                <option value="" selected="selected">Select Role</option>
-                                                <option value="AL">ACTIVE</option>
-                                                <option value="AK">PASSIVE</option>
+                                            <label >ROLE</label>
+                                            <select  name="roleid" id="roleid "th:field="*{role}" class="form-control" required="required">
+                                                <option th:value="''" th:text="Select"></option>
+                                                <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -141,7 +152,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <button type="button" class="btn btn-success">Save</button>
+                                        <button type="submit" class="btn btn-success">Save</button>
                                         <button type="button" class="btn btn-danger">Delete </button>
                                         <button type="button" class="btn btn-secondary">Cancel</button>
 
@@ -163,93 +174,27 @@
                         <table class="table table-data3">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Representative</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Zip</th>
-                                <th>State</th>
+                                <th>Role</th>
+                                <th>Corp</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-success">Active</button></td>
-                                <td>
+                            <tr  th:each="user:${users}">
+                                <td th:text="${user.firstName+' '+user.lastName}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.phone}"></td>
+                                <td th:text="${user.role.description}"></td>
+                                <td></td>
+                                <td class="actions">
+                                    <button type="button" class="btn btn-success">Active</button>
+                                </td>
+                                <td class="actions">
                                     <div class="table-data-feature">
                                         <button class="item" data-toggle="tooltip" data-placement="top"
                                                 title="Edit">
