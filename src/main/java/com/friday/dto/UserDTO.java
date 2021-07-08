@@ -24,4 +24,6 @@ public class UserDTO {
     private Status userStatus;
     private List<Role> roles;
     private Company company;
+
+    //
 }
