@@ -122,7 +122,7 @@
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label >ROLE</label>
-                                            <select  name="roleid" id="roleid "th:field="*{role}" class="form-control" required="required">
+                                            <select th:field="*{roles}" class="form-control" required="required">
                                                 <option th:value="''" th:text="Select"></option>
                                                 <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
 
@@ -186,11 +186,12 @@
                             </thead>
                             <tbody>
                             <tr  th:each="user:${users}">
-                                <td th:text="${user.firstName+' '+user.lastName}"></td>
+                                <td th:text="${user.firstName}"></td>
+                                <td th:text="${user.lastName}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.phone}"></td>
-                                <td th:text="${user.role.description}"></td>
-                                <td></td>
+                                <td th:text="${user.roles}"></td>
+                                <td th:text="${user.getUserStatus()}"></td>
                                 <td class="actions">
                                     <button type="button" class="btn btn-success">Active</button>
                                 </td>

@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -22,4 +21,9 @@ public class InvoiceNumber extends BaseEntity{
     private Integer year;
     private Integer invoiceNumber;
 
+    public InvoiceNumber(Integer year, Integer invoiceNumber) {
+        this.year = year;
+        this.invoiceNumber = invoiceNumber;
+    }
+    public InvoiceNumber(){}
 }

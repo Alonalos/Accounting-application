@@ -10,7 +10,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -38,6 +37,13 @@ public class Invoice extends  BaseEntity {
 
     private boolean enabled;
 
-
-
+    public Invoice(String invoiceNo, InvoiceStatus invoiceStatus, Integer invoiceNumber, InvoiceType invoiceType, LocalDate date, boolean enabled) {
+        this.invoiceNo = invoiceNo;
+        this.invoiceStatus = invoiceStatus;
+        this.invoiceNumber = invoiceNumber;
+        this.invoiceType = invoiceType;
+        this.date = date;
+        this.enabled = enabled;
+    }
+    public Invoice(){}
 }

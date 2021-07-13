@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -21,7 +21,7 @@ public class Product extends BaseEntity  {
     private String unit;
     private Integer lowLimitAlert;
     private Integer tax;
-    private Boolean enabled;
+    private boolean enabled;
 
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -34,7 +34,17 @@ public class Product extends BaseEntity  {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    public Product(String name, String description, Integer qty, Integer price, String unit, Integer lowLimitAlert, Integer tax, boolean enabled, Status status) {
+        this.name = name;
+        this.description = description;
+        this.qty = qty;
+        this.price = price;
+        this.unit = unit;
+        this.lowLimitAlert = lowLimitAlert;
+        this.tax = tax;
+        this.enabled = enabled;
+        this.status = status;
+    }
 
-
-
+    public Product(){}
 }

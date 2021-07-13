@@ -16,6 +16,6 @@ import java.math.BigDecimal;
 public class InvoiceProductDTO {
     private BigDecimal unitPrice;
     private Integer qty;
-    private Product product;
-    private Invoice invoice;
+    private ProductDTO product;
+    private InvoiceDTO invoice;
 }

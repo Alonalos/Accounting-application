@@ -25,5 +25,5 @@ public class SPDTO {
     private String state;
     private Status status;
 
-    private Company company;
+    private CompanyDTO company;
 }

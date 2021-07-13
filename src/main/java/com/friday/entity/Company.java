@@ -9,7 +9,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -26,10 +25,22 @@ public class Company extends  BaseEntity {
     private String email;
 
     private LocalDate establishmentDate;
-    private Boolean enabled;
+    private boolean enabled;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-
+    public Company(String title, String address1, String address2, String state, String zip, String representative, String email, LocalDate establishmentDate, boolean enabled, Status status) {
+        this.title = title;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.state = state;
+        this.zip = zip;
+        this.representative = representative;
+        this.email = email;
+        this.establishmentDate = establishmentDate;
+        this.enabled = enabled;
+        this.status = status;
+    }
+    public Company(){}
 }

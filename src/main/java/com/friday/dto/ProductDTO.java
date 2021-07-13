@@ -23,7 +23,7 @@ public class ProductDTO {
     private String unit;
     private Integer lowLimitAlert;
     private Integer tax;
-    private Category category;
-    private Company company;
+    private CategoryDTO category;
+    private CompanyDTO company;
     private Status productStatus;
 }

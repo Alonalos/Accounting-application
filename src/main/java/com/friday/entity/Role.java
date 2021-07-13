@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -18,14 +17,17 @@ import java.util.List;
 public class Role extends BaseEntity{
 
     private String description;
-    private Boolean enabled;
+
 
     @ManyToMany(mappedBy = "roles")
     private List <User> users=new ArrayList<>();
 
 
-    public Role(String description, Boolean enabled) {
+    public Role(String description) {
         this.description = description;
-        this.enabled = enabled;
     }
+
+public Role(){}
+
+
 }

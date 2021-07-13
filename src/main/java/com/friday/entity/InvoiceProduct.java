@@ -7,7 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -25,5 +25,9 @@ public class InvoiceProduct extends  BaseEntity{
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
-
+    public InvoiceProduct(BigDecimal unitPrice, Integer qty) {
+        this.unitPrice = unitPrice;
+        this.qty = qty;
+    }
+    public InvoiceProduct(){}
 }

@@ -15,7 +15,7 @@ import lombok.Setter;
 public class CategoryDTO {
     private Long id;
     private String description;
-    private Company company;
+    private CompanyDTO company;
     private Status categoryStatus;
 
 }

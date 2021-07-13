@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -25,11 +25,23 @@ public class SP extends BaseEntity {
     private String zipCode;
     private String address;
     private String state;
-    private Boolean enabled;
+    private boolean enabled;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Company company;
 
+    public SP(String companyName, String phone, String email, Status status, String type, String zipCode, String address, String state, boolean enabled) {
+        this.companyName = companyName;
+        this.phone = phone;
+        this.email = email;
+        this.status = status;
+        this.type = type;
+        this.zipCode = zipCode;
+        this.address = address;
+        this.state = state;
+        this.enabled = enabled;
+    }
 
+    public SP(){}
 }

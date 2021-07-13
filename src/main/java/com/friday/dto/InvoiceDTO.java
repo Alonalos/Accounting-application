@@ -23,8 +23,8 @@ public class InvoiceDTO {
     private Integer invoiceNumber;
     private InvoiceType invoiceType;
     private LocalDate date;
-    private SP sp;
-    private Company company;
+    private SPDTO sp;
+    private CompanyDTO company;
     private Long id;
 
 

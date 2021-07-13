@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class InvoiceNumberDTO {
-    private Company company;
+    private CompanyDTO company;
     private Integer year;
     private Integer invoiceNumber;
 }

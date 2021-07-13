@@ -22,8 +22,8 @@ public class UserDTO {
     private String password;
     private String phone;
     private Status userStatus;
-    private List<Role> roles;
-    private Company company;
+    private CompanyDTO company;
+    private List<RoleDTO> roles;
 
-    //
+
 }

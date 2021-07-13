@@ -9,7 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 
-@NoArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Category extends BaseEntity{
 
     private String description;
-    private Boolean enabled;
+    private boolean enabled;
     @Enumerated(EnumType.STRING)
     private Status status;
 
@@ -25,4 +25,11 @@ public class Category extends BaseEntity{
     @JoinColumn(name = "company_id")
     private Company company;
 
+    public Category(String description, boolean enabled, Status status) {
+        this.description = description;
+        this.enabled = enabled;
+        this.status = status;
+    }
+
+    public Category(){}
 }
