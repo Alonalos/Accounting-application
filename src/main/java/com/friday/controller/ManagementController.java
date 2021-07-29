@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -28,6 +29,13 @@ public class ManagementController {
         model.addAttribute("roles",roleService.listAllRoles());
         model.addAttribute("users",userService.listAllUsers());
         return "/management/user";
+    }
+
+    @PostMapping("/user")
+    public String insertUser(UserDTO user,Model model){
+
+        userService.save(user);
+        return "redirect:/management/user";
     }
 
     @GetMapping("/company")

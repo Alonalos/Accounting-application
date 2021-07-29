@@ -25,5 +25,13 @@ public class UserDTO {
     private CompanyDTO company;
     private List<RoleDTO> roles;
 
+    public String getRolesString() {
+        String rolesStr = "";
+        for (RoleDTO role : roles) {
+            rolesStr += role.getDescription() + " ";
+        }
+        return rolesStr;
+    }
+
 
 }

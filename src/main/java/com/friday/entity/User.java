@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     private String phone;
 
     @ManyToOne
-    @JoinColumn(name = "company_id",nullable = false)
+    @JoinColumn(name = "company_id")//,nullable = false) change later
     private Company company;
 
     @Enumerated(EnumType.STRING)

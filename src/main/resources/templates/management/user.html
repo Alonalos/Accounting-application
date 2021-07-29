@@ -87,16 +87,16 @@
                                             <input type="text" id="lastname" th:field="*{lastName}"
                                                    class="form-control" required>
                                             <div class="invalid-feedback">
-                                                Please enter  last first name
+                                                Please enter last name
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="password" class="col-form-label">PASSWORD</label>
-                                            <input id="password" type="password"  th:field="*{password}" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                            <input id="password" type="password"  th:field="*{password}" class="form-control"  required>
                                             <div class="invalid-feedback">
-                                                Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
+                                                Please enter password
                                             </div>
                                         </div>
                                     </div>
@@ -143,11 +143,11 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="selectstatus" class=" form-control-label">STATUS</label>
-                                            <select name="select" id="selectstatus" class="form-control">
-                                                <option value="" selected="selected">Select Status</option>
-                                                <option value="AL">ACTIVE</option>
-                                                <option value="AK">PASSIVE</option>
+                                            <label>STATUS</label>
+                                            <select th:field="*{userStatus}" class="form-control" required="required">
+                                                <option th:value="''" th:text="Select"></option>
+                                                <option th:each="status:${T(com.friday.enums.Status).values()}"
+                                                        th:value="${status}" th:text="${status.getValue()}" ></option>
                                             </select>
                                         </div>
                                     </div>
@@ -190,11 +190,10 @@
                                 <td th:text="${user.lastName}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.phone}"></td>
-                                <td th:text="${user.roles}"></td>
-                                <td th:text="${user.getUserStatus()}"></td>
-                                <td class="actions">
-                                    <button type="button" class="btn btn-success">Active</button>
-                                </td>
+                                <td th:text="${user.getRolesString()}"></td>
+                                <td></td>
+                                <td th:text="${user.userStatus}"></td>
+
                                 <td class="actions">
                                     <div class="table-data-feature">
                                         <button class="item" data-toggle="tooltip" data-placement="top"

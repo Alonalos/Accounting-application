@@ -3,6 +3,7 @@ package com.friday.implementation;
 import com.friday.dto.ProductDTO;
 import com.friday.dto.UserDTO;
 import com.friday.entity.Product;
+import com.friday.entity.Role;
 import com.friday.entity.User;
 import com.friday.enums.Status;
 import com.friday.repository.UserRepository;
@@ -44,13 +45,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO save(UserDTO dto) {
-        dto.setUserStatus(Status.ACTIVE);
+
         User user=mapperUtil.convert(dto, new User());
         //user.setPassword(passwordEncoder.encode(user.getPassword()));
         User save=userRepository.save(user);
+
         return mapperUtil.convert(save, new UserDTO());
 
     }
+
 
     @Override
     public void delete(String email) {
