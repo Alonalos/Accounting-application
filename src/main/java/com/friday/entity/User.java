@@ -67,12 +67,10 @@ public class User extends BaseEntity {
     public void addRole(Role role) {
         roles.add(role);
     }
+
     public void removeRole(Role role) {
         roles.remove(role);
     }
-
-
-
 
 
     public User(String firstName, String lastName,  String email, boolean enabled, String phone,

@@ -68,28 +68,32 @@
             <div class="container small">
                 <div class="col-sm-12">
                     <!--------------------------FORM START------------------------------->
-                    <form >
+                    <form class="needs-validation" novalidate th:action="@{/management/company}" method="post" th:object="${company}">
                         <div class="card">
                             <div class="card-body card-block">
                                 <div class="row form-group">
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="title" class=" form-control-label">TITLE</label>
-                                            <input type="text" id="title"
-                                                   class="form-control">
+                                            <input type="text" id="title" th:field="*{title}" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter title
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="zip" class=" form-control-label">ZIPCODE</label>
-                                            <input type="text" id="zip"
-                                                   class="form-control">
+                                            <input type="text" id="zip" th:field="*{zip}" pattern="[0-9]{5}" minlength="5" max="5" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter zipcode
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="select" class=" form-control-label">STATE</label>
-                                            <select name="select" id="select" class="form-control">
+                                            <select name="select" id="select" th:field="*{state}" class="form-control" required>
                                                 <option value="" selected="selected">Select State</option>
                                                 <option value="AL">Alabama</option>
                                                 <option value="AK">Alaska</option>
@@ -143,6 +147,9 @@
                                                 <option value="WI">Wisconsin</option>
                                                 <option value="WY">Wyoming</option>
                                             </select>
+                                            <div class="invalid-feedback">
+                                                Please select state
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -150,23 +157,29 @@
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="address" class=" form-control-label">ADDRESS</label>
-                                            <input type="text" id="address"
-                                                   class="form-control">
+                                            <input type="text" id="address" th:field="*{address1}" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter address
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="phone" class=" form-control-label">PHONE</label>
-                                            <input type="tel" id="phone"
-                                                   class="form-control">
+                                            <input type="tel" id="phone" th:field="*{phone}" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter phone
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="email" class=" form-control-label">E-MAIL</label>
-                                            <input type="text" id="email"
-                                                   class="form-control">
+                                            <input type="text" id="email" th:field="*{email}" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter email
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -174,25 +187,36 @@
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="date" class=" form-control-label">ESTABLISHMENT DATE</label>
-                                            <input type="text" id="date"
-                                                   class="form-control">
+                                            <input type="text"  id="date" th:field="*{establishmentDate}" placeholder="dd-MM-yyyy" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter establishment date
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="representative" class=" form-control-label">REPRESENTATIVE</label>
-                                            <input type="text" id="representative"
-                                                   class="form-control">
+                                            <input type="text" id="representative" th:field="*{representative}" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Please enter representative
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="select2" class=" form-control-label">STATUS</label>
-                                            <select name="select" id="select2" class="form-control">
-                                                <option value="" selected="selected">Select Status</option>
-                                                <option value="AL">ACTIVE</option>
-                                                <option value="AK">PASSIVE</option>
+                                            <label>STATUS</label>
+                                            <select th:field="*{companyStatus}" class="form-control" required="required">
+                                                <option th:value="''" th:text="Select"></option>
+                                                <option th:each="status:${T(com.friday.enums.Status).values()}"
+                                                        th:value="${status}" th:text="${status.getValue()}" ></option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="table-data__tool">
+                                        <div class="table-data__tool-right">
+                                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" type="submit">
+                                                <i class="zmdi zmdi-plus" ></i>Add Company
+                                            </button>
                                         </div>
                                     </div>
 
@@ -201,112 +225,37 @@
                         </div>
                     </form>
                     <!--------------------------FORM END------------------------------->
-                    <div class="table-data__tool">
-                        <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>Add Company
-                            </button>
-                        </div>
-                    </div>
+
                     <!-- START DATA TABLE-->
                     <div class="table-responsive table-responsive-data3 ">
                         <table class="table table-data3">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Title</th>
                                 <th>Representative</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Zip</th>
-                                <th>State</th>
+                                <th>Address</th>
+                                <th>Establishment Date</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
+                            <tr th:each="company:${companies}">
+                                <td th:text="${company.title}"></td>
+                                <td th:text="${company.representative}"></td>
+                                <td th:text="${company.email}"></td>
+                                <td th:text="${company.phone}"></td>
+                                <td th:text="${company.address1 +' '+company.state+' '+ company.zip}"></td>
+                                <td th:text="${company.getDateString()}"></td>
+                                <td th:text="${company.companyStatus}"></td>
                                 <td><div class="table-data-feature">
                                     <button class="item" data-toggle="tooltip" data-placement="top"
                                             title="Edit">
                                         <i class="zmdi zmdi-edit"></i>
                                     </button>
                                 </div></td>
-                            </tr>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-primary">Closed</button></td>
-                                <td><div class="table-data-feature">
-                                    <button class="item" data-toggle="tooltip" data-placement="top"
-                                            title="Edit">
-                                        <i class="zmdi zmdi-edit"></i>
-                                    </button>
-                                </div></td>
-                            </tr>
-
-                            <tr class="tr-shadow">
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><button type="button" class="btn btn-success">Active</button></td>
-                                <td>
-                                    <div class="table-data-feature">
-                                        <button class="item" data-toggle="tooltip" data-placement="top"
-                                                title="Edit">
-                                            <i class="zmdi zmdi-edit"></i>
-                                        </button>
-                                    </div>
-                                </td>
                             </tr>
                             </tbody>
                         </table>

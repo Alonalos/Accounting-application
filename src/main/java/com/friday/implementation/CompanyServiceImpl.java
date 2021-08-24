@@ -11,6 +11,7 @@ import com.friday.util.MapperUtil;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,8 +30,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public CompanyDTO save(CompanyDTO dto) throws Exception {
 
-        dto.setCompanyStatus(Status.ACTIVE);
-        dto.setEstablishmentDate(LocalDate.now());
         Company company=mapperUtil.convert(dto, new Company());
         Company save=companyRepository.save(company);
         return mapperUtil.convert(save, new CompanyDTO());
@@ -68,4 +67,8 @@ public class CompanyServiceImpl implements CompanyService {
         List<Company> list = companyRepository.findAll();
         return list.stream().map(obj->mapperUtil.convert(obj, new CompanyDTO())).collect(Collectors.toList());
     }
+
+
+
+
 }

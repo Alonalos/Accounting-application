@@ -133,13 +133,13 @@
                                 <div class="row form-group">
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="selectcompany" class=" form-control-label">COMPANY</label>
-                                            <select name="select" id="selectcompany" class="form-control">
-                                                <option value="" selected="selected">Select Company</option>
-                                                <option value="AL">ACTIVE</option>
-                                                <option value="AK">PASSIVE</option>
+                                            <label for="selectcompany" id="selectcompany" class=" form-control-label">COMPANY</label>
+                                            <select th:field="*{company}" class="form-control" required="required">
+                                                <option value="' '" th:text="Select"></option>
+                                                <option th:each="company:${companies}" th:value="${company.id}" th:text="${company.title}"></option>
                                             </select>
                                         </div>
+
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
@@ -162,13 +162,6 @@
                         </div>
                     </form>
                     <!--------------------------FORM END------------------------------->
-                    <div class="table-data__tool">
-                        <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>Add User
-                            </button>
-                        </div>
-                    </div>
                     <!-- START DATA TABLE-->
                     <div class="table-responsive table-responsive-data3 ">
                         <table class="table table-data3">

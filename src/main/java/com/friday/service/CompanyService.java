@@ -18,4 +18,8 @@ public interface CompanyService {
 
     List<CompanyDTO> listAllCompanies();
 
+
+
+
+
 }
