@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.text.DateFormat;
@@ -25,12 +26,11 @@ public class CompanyDTO {
     private String zip;
     private String representative;
     private String email;
-    private Date establishmentDate;
+
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private LocalDate establishmentDate;
+
     private Status companyStatus;
 
-    public String getDateString() {
-        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-        String dateString = dateFormat.format(new Date());
-        return dateString;
-    }
+
 }

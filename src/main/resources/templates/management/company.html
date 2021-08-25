@@ -186,8 +186,8 @@
                                 <div class="row form-group">
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="date" class=" form-control-label">ESTABLISHMENT DATE</label>
-                                            <input type="text"  id="date" th:field="*{establishmentDate}" placeholder="dd-MM-yyyy" class="form-control" required>
+                                            <label for="establishmentDate" class=" form-control-label">ESTABLISHMENT DATE</label>
+                                            <input type="date"  id="establishmentDate" th:field="*{establishmentDate}"  class="form-control" required>
                                             <div class="invalid-feedback">
                                                 Please enter establishment date
                                             </div>
@@ -248,7 +248,7 @@
                                 <td th:text="${company.email}"></td>
                                 <td th:text="${company.phone}"></td>
                                 <td th:text="${company.address1 +' '+company.state+' '+ company.zip}"></td>
-                                <td th:text="${company.getDateString()}"></td>
+                                <td th:text="${#temporals.format(company.establishmentDate,'MM/dd/yyyy')}"></td>
                                 <td th:text="${company.companyStatus}"></td>
                                 <td><div class="table-data-feature">
                                     <button class="item" data-toggle="tooltip" data-placement="top"

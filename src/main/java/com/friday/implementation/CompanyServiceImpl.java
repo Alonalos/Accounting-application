@@ -8,6 +8,7 @@ import com.friday.enums.Status;
 import com.friday.repository.CompanyRepository;
 import com.friday.service.CompanyService;
 import com.friday.util.MapperUtil;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class CompanyServiceImpl implements CompanyService {
     private MapperUtil mapperUtil;
     private CompanyRepository companyRepository;
 
-    public CompanyServiceImpl(MapperUtil mapperUtil, CompanyRepository companyRepository) {
+    public CompanyServiceImpl(MapperUtil mapperUtil, @Lazy CompanyRepository companyRepository) {
         this.mapperUtil = mapperUtil;
         this.companyRepository = companyRepository;
     }
@@ -66,6 +67,13 @@ public class CompanyServiceImpl implements CompanyService {
     public List<CompanyDTO> listAllCompanies() {
         List<Company> list = companyRepository.findAll();
         return list.stream().map(obj->mapperUtil.convert(obj, new CompanyDTO())).collect(Collectors.toList());
+    }
+
+    @Override
+    public CompanyDTO findById(Long id) {
+
+        Company company=companyRepository.findById(id).get();
+        return mapperUtil.convert(company, new CompanyDTO());
     }
 
 

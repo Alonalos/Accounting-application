@@ -70,11 +70,6 @@ public class ManagementController {
 
 
 
-    @InitBinder
-    public void initBinder(WebDataBinder binder, WebRequest request) {
-        //convert the date Note that the conversion here should always be in the same format as the string passed in, e.g. 2015-9-9 should be yyyy-MM-dd
-        DateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy");
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));// CustomDateEditor is a custom date editor
-    }
+
 
 }

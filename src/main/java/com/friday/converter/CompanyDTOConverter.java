@@ -14,17 +14,13 @@ import org.springframework.stereotype.Component;
 @ConfigurationPropertiesBinding
 public class CompanyDTOConverter implements Converter<String, CompanyDTO> {
 
-    @Autowired
-    CompanyRepository companyRepository;
 
     @Autowired
-    MapperUtil mapperUtil;
+    CompanyService companyService;
 
     @Override
     public CompanyDTO convert(String source) {
-        Company company=companyRepository.findByEmail(source);
-
-
-        return mapperUtil.convert(company,new CompanyDTO());
+        Long id=Long.parseLong(source);
+        return companyService.findById(id);
     }
 }

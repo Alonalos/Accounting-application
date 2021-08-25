@@ -1,6 +1,7 @@
 package com.friday.service;
 
 import com.friday.dto.CompanyDTO;
+import com.friday.dto.RoleDTO;
 import com.friday.dto.UserDTO;
 import com.friday.entity.Company;
 
@@ -17,6 +18,9 @@ public interface CompanyService {
     void delete(Long id);
 
     List<CompanyDTO> listAllCompanies();
+
+    CompanyDTO findById(Long id);
+
 
 
 
