@@ -13,11 +13,13 @@ public interface UserService {
     List<UserDTO>listAllUsers();
 
 
-    UserDTO save(UserDTO dto);
+    void save(UserDTO dto);
 
     void delete(String email);
 
-    void update(UserDTO userDTO);
+    UserDTO update(UserDTO userDTO);
+
+
 
 
 

@@ -47,6 +47,24 @@ public class ManagementController {
         return "redirect:/management/user";
     }
 
+    @GetMapping("/userUpdate/{username}")
+    public String editUser(@PathVariable("username") String username,Model model){
+
+        model.addAttribute("user",userService.findByEmail(username));
+        model.addAttribute("users",userService.listAllUsers());
+        model.addAttribute("roles",roleService.listAllRoles());
+        model.addAttribute("companies",companyService.listAllCompanies());
+
+        return "/management/userUpdate";
+
+    }
+
+    @PostMapping("/userUpdate/{username}")
+    public String updateUser(@PathVariable("username") String username,UserDTO user,Model model){
+        userService.update(user);
+        return "redirect:/management/user";
+    }
+
 
     @GetMapping("/company")
     public String createCompany( Model model){

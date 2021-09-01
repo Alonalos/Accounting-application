@@ -1,9 +1,7 @@
 package com.friday.implementation;
 
 import com.friday.dto.CompanyDTO;
-import com.friday.dto.InvoiceDTO;
 import com.friday.entity.Company;
-import com.friday.entity.Invoice;
 import com.friday.enums.Status;
 import com.friday.repository.CompanyRepository;
 import com.friday.service.CompanyService;
@@ -11,8 +9,6 @@ import com.friday.util.MapperUtil;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

@@ -1,5 +1,6 @@
 package com.friday.repository;
 
+import com.friday.dto.UserDTO;
 import com.friday.entity.User;
 import com.friday.enums.Status;
 import org.springframework.data.jpa.repository.JpaRepository;

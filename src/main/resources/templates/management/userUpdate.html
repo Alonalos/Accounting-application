@@ -68,7 +68,7 @@
         <section class="p-t-10">
             <div class="container small">
                 <div class="col-sm-12">
-                    <form class="needs-validation" novalidate th:action="@{/management/user}" method="post" th:object="${user}">
+                    <form class="needs-validation" novalidate th:action="@{/management/userUpdate/{id}(id=${user.email})}" method="post" th:object="${user}">
                         <div class="card">
                             <div class="card-body card-block">
                                 <div class="row form-group">
@@ -122,9 +122,10 @@
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label >ROLE</label>
-                                            <select th:field="*{roles}" class="form-control" required="required">
+                                            <select name="role" class="form-control" required="required">
                                                 <option th:value="''" th:text="Select"></option>
-                                                <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
+                                                <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"
+                                                th:selected="${role.id}==${user.getId()}"></option>
 
                                             </select>
                                         </div>
@@ -134,9 +135,10 @@
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="selectcompany" id="selectcompany" class=" form-control-label">COMPANY</label>
-                                            <select th:field="*{company}" class="form-control" required="required">
+                                            <select name="company" class="form-control" required="required">
                                                 <option value="' '" th:text="Select"></option>
-                                                <option th:each="company:${companies}" th:value="${company.id}" th:text="${company.title}"></option>
+                                                <option th:each="company:${companies}" th:value="${company.id}" th:text="${company.title}"
+                                                th:selected="${company.id}==${user.company.id}"></option>
                                             </select>
                                         </div>
 
@@ -188,7 +190,10 @@
 
                                 <td class="actions">
                                     <div class="table-data-feature">
-                                        <a th:href="@{/management/userUpdate/{id}(id=${user.email})}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit"> <i class="zmdi zmdi-edit"></i></button></a>
+                                        <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Edit">
+                                            <i class="zmdi zmdi-edit"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
